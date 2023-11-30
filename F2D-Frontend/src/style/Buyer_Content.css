@@ -1,0 +1,18 @@
+.buyer_content{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: #665039;
+    background: #b18e64;
+    font-family: Prociono;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    list-style-type: none;
+    padding-right: 80px;
+    width: 400px;
+}
+.buyer_content_options:hover{
+    color: #e8c897;
+}

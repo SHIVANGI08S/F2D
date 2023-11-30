@@ -46,7 +46,7 @@
   transform: translate(0px, 10px); 
 }
 .join-box{
-    display: flex;
+display: flex;
 flex-direction: column;
 text-align: center;
 align-items: center;

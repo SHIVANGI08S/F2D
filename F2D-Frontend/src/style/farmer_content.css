@@ -10,7 +10,8 @@
   font-weight: 400;
   line-height: normal;
   list-style-type: none;
-  padding-right: 100px;
+  padding-right: 80px;
+  width: 400px;
 }
 .farmer-content {
   background: #b18e64;
@@ -18,6 +19,7 @@
 .farmer-content-options-name {
   padding: 3px;
   margin: 10px;
+  margin-right: 20px;
 }
 .farmer-content-options-name:hover {
   cursor: pointer;
@@ -50,9 +52,18 @@
   right: 10px;
   cursor: pointer;
 }
+.col-name{
+  margin: 20px;
+  padding: 20px;
+
+}
+.th-margin {
+  margin: 0 20px;
+}
+
 .search_button {
-  width: 720px;
-  margin-right: 10px;
+  width: 600px;
+  margin-right: 5px;
   height: 33px;
   color: #665039;
   padding: 2px;
@@ -64,9 +75,13 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 10px;
+}
+.search-button-order{
+  padding: 5px;
 }
 .add_button {
-  width: 350px;
+  width: 300px;
   height: 33px;
   border-radius: 2px;
   color: #665039;
@@ -89,4 +104,12 @@
 }
 .input_box {
   background-color: #665039;
+}
+.account_detail{
+  color: #665039;
+font-family: Prociono;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }

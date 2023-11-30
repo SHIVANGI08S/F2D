@@ -14,6 +14,9 @@ import FAQ from "./components/FAQ/FAQ";
 import Farmer_Account from "./components/FarmerContent/Farmer_Account";
 import Farmer_Order from "./components/FarmerContent/Farmer_Order";
 import Farmer_Product from "./components/FarmerContent/Farmer_Product";
+import Buyer_Home from "./components/BuyerContent/Buyer_Home";
+import Buyer_Cart from "./components/BuyerContent/Buyer_Cart";
+import Buyer_Account from "./components/BuyerContent/Buyer_Account";
 
 
 // import Signup from "./components/authentication/Signup";
@@ -35,6 +38,9 @@ function App() {
             <Route exact path="/Faq" element={<FAQ/>} />
             <Route exact path="/FarmerOrder" element={<Farmer_Order/>} />
             <Route exact path="/FarmerProduct" element={<Farmer_Product/>} />
+            <Route exact path="/BuyerContent" element={<Buyer_Home/>} />
+            <Route exact path="/BuyerCart" element={<Buyer_Cart/>} />
+            <Route exact path="/BuyerAccount" element={<Buyer_Account/>} />
           </Routes>
         </div>
         <Footer/>

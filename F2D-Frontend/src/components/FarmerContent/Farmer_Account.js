@@ -10,21 +10,27 @@ const Farmer_Account = () => {
     <ChakraProvider>
       <Box className="farmer-content">
         <Box display="flex" flexDirection="row">
-          <Box margin="5" marginRight="20">
+          <Box margin="10"  marginTop="40" width="40">
             <ul className="farmer-content-options " color="#665039">
               <li className="farmer-content-options-name" color="#665039">
               <Link to="/FarmerProduct">
+              <Box padding="5">
               <i class="fa-solid fa-cube "></i> Product
+              </Box>
+              
               </Link>
               </li>
               <li className="farmer-content-options-name" color="#665039">
               <Link to="/FarmerOrder">
+              <Box padding="5" marginRight="5">
               <i class="fa-solid fa-list-check"></i> Order
+              </Box>
+              
               </Link>
               </li>
               <li className="farmer-content-options-name" color="#E8C897">
               <Link to="/FarmerContent">
-              <Box color="#e8c897">
+              <Box color="#e8c897" padding="5">
               <i class="fa-regular fa-user "></i> Account
               </Box>
               
@@ -33,13 +39,19 @@ const Farmer_Account = () => {
               </li>
             </ul>
           </Box>
-          <Box bg="#665039">
-            <Box display="flex" flexDirection="row">
+          <Box bg="#665039" marginLeft="20">
+            <Box display="flex" flexDirection="row" className="account_detail">
               <Box bg="#E8C897" margin="5" borderRadius="md" padding="5">
                 Total Sales
+                <Box>
+                  50,000
+                </Box>
               </Box>
               <Box bg="#E8C897" margin="5" borderRadius="md" padding="5">
                 Order Count
+                <Box>
+                  600
+                </Box>
               </Box>
             </Box>
             <Box
