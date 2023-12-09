@@ -16,3 +16,37 @@
 .buyer_content_options:hover{
     color: #e8c897;
 }
+.buyer_account{
+    padding-left: 50px;
+    padding-left: 40px;
+    padding-top: 30px;
+    background-color: #665039;
+    font-family: Prociono;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    list-style-type: none;
+    color: #b18e64;
+}
+.buyer_account_search{
+    background-color: #b18e64;
+    width: 400px;
+}
+.account_th{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 60px;
+}
+.buyer_account_content{
+    padding: 10px;
+}
+.account_th_date{
+    padding-right: 140px;
+
+}
+
+.account_th_status{
+
+    padding-right: 300px;
+}

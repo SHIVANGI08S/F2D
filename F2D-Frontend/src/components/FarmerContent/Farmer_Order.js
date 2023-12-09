@@ -2,7 +2,8 @@ import React from "react";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fontawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../../style/farmer_content.css";
 
