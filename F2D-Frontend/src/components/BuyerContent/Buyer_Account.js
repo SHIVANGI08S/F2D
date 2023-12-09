@@ -3,6 +3,9 @@ import  { useState } from 'react';
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import "../../style/Buyer_Content.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 
 const Buyer_Account = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -49,13 +52,22 @@ const Buyer_Account = () => {
         </Box>
         <Box className='buyer_account' paddingLeft="16" paddingBottom="20">
         <h1>Account Page</h1>
-      <input
+        <FontAwesomeIcon icon={faSearch} className="search-icon" />
+            <input
+              className="search-button-order"
+              type="text"
+              placeholder="Search orders..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{ backgroundColor: "#b18e64", padding: "5px" }}
+            />
+      {/* <input
         className='buyer_account_search'
         type="text"
         placeholder="Search by Order Number"
         value={searchTerm}
         onChange={handleSearch}
-      />
+      /> */}
       <table>
         <thead>
           <tr>
