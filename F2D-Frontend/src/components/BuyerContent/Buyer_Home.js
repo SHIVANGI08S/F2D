@@ -19,6 +19,34 @@ const Buyer_Home = ({ addToCart }) => {
       inCart: false,
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
     },
+    {
+      id: 3,
+      name: 'Item 1',
+      price: 20.99,
+      inCart: false,
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
+    },
+    {
+      id: 4,
+      name: 'Item 1',
+      price: 20.99,
+      inCart: false,
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
+    },
+    {
+      id: 5,
+      name: 'Item 1',
+      price: 20.99,
+      inCart: false,
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
+    },
+    {
+      id: 6,
+      name: 'Item 1',
+      price: 20.99,
+      inCart: false,
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
+    },
   ]);
 
   const handleAddToCart = (item) => {
@@ -69,8 +97,8 @@ const Buyer_Home = ({ addToCart }) => {
               {sampleData.map((item) => (
                 <div key={item.id} className="card">
                   <h2>{item.name}</h2>
-                  <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px' }} />
-                  {/* <p>{item.description}</p> */}
+                  <img className="buyer_img" src={item.image} alt={item.name} style={{ width: '100px', height: '100px'  }} />
+                  
                   <p>Price: ${item.price}</p>
                   {item.inCart ? (
                     <Link to="/BuyerCart">
