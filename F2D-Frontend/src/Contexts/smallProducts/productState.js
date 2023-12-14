@@ -4,8 +4,9 @@ import productContext from "./productContext";
 const ProductState = (props) => {
   const host = "http://localhost:5000";
   const initialProduct = [];
-
+  const initialCart = [];
   const [products, setProducts] = useState(initialProduct);
+  const[cart , setCart] = useState(initialCart);
 
   // GET ALL products
   const getAllProducts = async () => {
@@ -20,6 +21,17 @@ const ProductState = (props) => {
     setProducts(json);
 };
  
+const getAllIrrespectiveOfUser = async () => {
+  const response = await fetch(`${host}/api/products/fetchAllProductsofAll`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "auth-token": localStorage.getItem("token"),
+    },
+  });
+  const json = await response.json();
+  setProducts(json);
+};
 
 
   // ADD a product
@@ -46,6 +58,28 @@ const ProductState = (props) => {
     setProducts([...products, product]);
   };
 
+  const addToCart = (productId) => {
+    // Find the product in the products array
+    const productToAdd = products.find((product) => product._id === productId);
+
+    // Check if the product is already in the cart
+    const isInCart = cart.find((item) => item._id === productId);
+
+    if (isInCart) {
+      // If the product is already in the cart, increase the quantity
+      setCart(
+        cart.map((item) =>
+          item._id === productId
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      // If the product is not in the cart, add it with quantity 1
+      setCart([...cart, { ...productToAdd, quantity: 1 }]);
+    }
+  };
+
 // //Delete a product
 const deleteProduct = async(id) => {
   const response = await fetch(`${host}/api/products/deleteProduct/${id}`, {
@@ -67,6 +101,10 @@ const deleteProduct = async(id) => {
         addProduct,
         getAllProducts,
         deleteProduct,
+        getAllIrrespectiveOfUser,
+        addToCart,
+        cart
+        
       }}
     >
       {props.children}

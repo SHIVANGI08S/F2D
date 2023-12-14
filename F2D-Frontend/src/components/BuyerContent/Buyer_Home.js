@@ -1,62 +1,27 @@
-import React, { useState } from "react";
+import React, { useState , useContext, useEffect} from "react";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import "../../style/Buyer_Content.css";
+import productContext from "../../Contexts/smallProducts/productContext";
 import { Link } from "react-router-dom";
 
-const Buyer_Home = ({ addToCart }) => {
-  const [sampleData, setSampleData] = useState([
-    {
-      id: 1,
-      name: 'Item 1',
-      price: 20.99,
-      inCart: false,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
-    },
-    {
-      id: 2,
-      name: 'Item 2',
-      price: 29.99,
-      inCart: false,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
-    },
-    {
-      id: 3,
-      name: 'Item 1',
-      price: 20.99,
-      inCart: false,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
-    },
-    {
-      id: 4,
-      name: 'Item 1',
-      price: 20.99,
-      inCart: false,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
-    },
-    {
-      id: 5,
-      name: 'Item 1',
-      price: 20.99,
-      inCart: false,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
-    },
-    {
-      id: 6,
-      name: 'Item 1',
-      price: 20.99,
-      inCart: false,
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUQQikpLtoMLg3XjSfoxREhca1OAjz1f8dgo1lwuprg&s', // Replace with your image link
-    },
-  ]);
+const Buyer_Home = () => {
+ const context = useContext(productContext);
+   const {products, addToCart, getAllIrrespectiveOfUser} = context;
 
-  const handleAddToCart = (item) => {
-    addToCart(item);
-    setSampleData((prevData) =>
-      prevData.map((data) =>
-        data.id === item.id ? { ...data, inCart: true } : data
-      )
-    );
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      getAllIrrespectiveOfUser();
+    } else {
+      // Handle unauthorized access here, e.g., redirect to login
+    }
+  }, [getAllIrrespectiveOfUser]);
+
+  const handleAddToCart = (productId) => {
+    addToCart(productId);
+    console.log("Added to Cart");
   };
+
+
 
   return (
     <ChakraProvider>
@@ -94,7 +59,7 @@ const Buyer_Home = ({ addToCart }) => {
           <div className="home">
             <h1>Welcome to the Buyer's Home Page</h1>
             <div className="item-container">
-              {sampleData.map((item) => (
+              {products.map((item) => (
                 <div key={item.id} className="card">
                   <h2>{item.name}</h2>
                   <img className="buyer_img" src={item.image} alt={item.name} style={{ width: '100px', height: '100px'  }} />
@@ -105,7 +70,7 @@ const Buyer_Home = ({ addToCart }) => {
                       <button className="button b_view" >View in Cart</button>
                     </Link>
                   ) : (
-                    <button className="button" onClick={() => handleAddToCart(item)}>
+                    <button className="button" onClick={() => handleAddToCart(item._id)}>
                       Add to Cart
                     </button>
                   )}
