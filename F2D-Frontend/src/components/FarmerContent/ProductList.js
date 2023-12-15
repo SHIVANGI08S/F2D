@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Box, Button, ChakraProvider } from "@chakra-ui/react";
+import productContext from "../../Contexts/smallProducts/productContext";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  const context = useContext(productContext);
+  const { products, addProduct, getAllProducts, deleteProduct , getAllIrrespectiveOfUser } = context;
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      getAllProducts();
+    } else {
+      // Handle unauthorized access here, e.g., redirect to login
+    }
+  }, [getAllProducts]);
+
   const [showModal, setShowModal] = useState(false);
-  const [newProduct, setNewProduct] = useState({
+  const [producte, setProducte] = useState({
     name: "",
     price: "",
     image: "",
     quantity: "",
   });
-  const [searchTerm, setSearchTerm] = useState("");
 
   const openModal = () => {
     setShowModal(true);
@@ -21,45 +30,31 @@ const ProductList = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNewProduct({
-      ...newProduct,
-      [name]: value,
-    });
+    // Update local state
+    setProducte({ ...producte, [e.target.name]: e.target.value });
   };
 
-  const addProduct = () => {
-    setProducts([...products, newProduct]);
-    setNewProduct({ name: "", price: "", image: "", quantity: "" });
+  const handleClick = () => {
+    // Call addProduct from context
+    addProduct(producte.name, producte.price, producte.image, producte.quantity);
+
+    // Clear local state
+    setProducte({
+      name: "",
+      price: "",
+      image: "",
+      quantity: "",
+    });
+
+    // Close the modal
     closeModal();
   };
-
-  const deleteProduct = (index) => {
-    const updatedProducts = [...products];
-    updatedProducts.splice(index, 1);
-    setProducts(updatedProducts);
-  };
-
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <ChakraProvider>
       <div>
-        <input
-          className="search_button"
-          type="text"
-          placeholder="Search by Name"
-          value={searchTerm}
-          onChange={handleSearch}
-        />
         <button className="add_button" onClick={openModal}>
-          <i class="fa-solid fa-plus"></i> Add new Product
+          <i className="fa-solid fa-plus"></i> Add new Product
         </button>
       </div>
 
@@ -81,7 +76,7 @@ const ProductList = () => {
               className="input_box"
               type="text"
               name="name"
-              value={newProduct.name}
+              value={producte.name}
               onChange={handleChange}
             />
             <label>Price:</label>
@@ -89,7 +84,7 @@ const ProductList = () => {
               className="input_box"
               type="text"
               name="price"
-              value={newProduct.price}
+              value={producte.price}
               onChange={handleChange}
             />
             <label>Image URL:</label>
@@ -97,7 +92,7 @@ const ProductList = () => {
               className="input_box"
               type="text"
               name="image"
-              value={newProduct.image}
+              value={producte.image}
               onChange={handleChange}
             />
             <label>Quantity in Stock:</label>
@@ -105,16 +100,16 @@ const ProductList = () => {
               className="input_box"
               type="text"
               name="quantity"
-              value={newProduct.quantity}
+              value={producte.quantity}
               onChange={handleChange}
             />
-            <button onClick={addProduct}>Add</button>
+            <button onClick={handleClick}>Add</button>
           </Box>
         </Box>
       )}
 
       <Box className="product-list" display="flex" flexWrap="wrap">
-        {filteredProducts.map((product, index) => (
+        {products.map((product, index) => (
           <Box
             key={index}
             className="product-card"
@@ -137,9 +132,9 @@ const ProductList = () => {
               <Button
                 color="#665039"
                 bg="#E8C897"
-                onClick={() => deleteProduct(index)}
+                onClick={()=>{deleteProduct(product._id)}} // Replace with actual delete functionality
               >
-                <i class="fa-solid fa-trash fa-lg"></i>
+                <i className="fa-solid fa-trash fa-lg"></i>
               </Button>
             </Box>
           </Box>

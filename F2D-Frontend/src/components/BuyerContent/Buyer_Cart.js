@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import "../../style/Buyer_Content.css";
 import { Link } from "react-router-dom";
+import productContext from "../../Contexts/smallProducts/productContext";
 
 const Buyer_Cart = ({
-  cartItems,
   removeItem,
   calculateTotal,
   handleCheckout,
 }) => {
+  const context = useContext(productContext);
+  const {cart} = context;
   return (
+   
+
     <ChakraProvider>
       <Box display="flex">
         <Box
@@ -39,20 +43,21 @@ const Buyer_Cart = ({
         <Box className="buyer_home">
           <div className="cart">
             <h2>Shopping Cart</h2>
-            {cartItems.length === 0 ? (
+            {cart.length === 0 ? (
               <p>Your cart is empty.</p>
             ) : (
               <div>
-                {cartItems.map((item) => (
-                  <div key={item.id} className="cart-item card">
-                  <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px' }} />
-                    <h3>{item.name}</h3>
-                    <p>Price: ${item.price}</p>
-                    <button className="button" onClick={() => removeItem(item.id)}>
-                      Remove from Cart
-                    </button>
-                  </div>
-                ))}
+                {cart.map((item) => (
+  <div key={item.id} className="cart-item card">
+    <img src={item.image} alt={item.name} style={{ width: '100px', height: '100px' }} />
+    <h3>{item.name}</h3>
+    <p>Price: ${item.price}</p>
+    <button className="button" onClick={() => removeItem(item.id)}>
+      Remove from Cart
+    </button>
+  </div>
+))}
+
                 <p>Total: ${calculateTotal()}</p>
                 <button className="
                  b_chck" onClick={handleCheckout}>
