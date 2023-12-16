@@ -64,7 +64,7 @@ const ProductList = () => {
             className="modal-content"
             width="80"
             bg="#b18e64"
-            color="#665039"
+            color="#e8c897"
             fontFamily="serif"
             fontSize="xl"
           >
