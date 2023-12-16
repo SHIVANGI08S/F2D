@@ -25,7 +25,10 @@ const Buyer_Home = () => {
 
   return (
     <ChakraProvider>
-      <Box display="flex">
+    <Box bg="#e8c897" >
+
+    
+      <Box display="flex" height="xl">
         <Box
           display="flex"
           flexDirection="column"
@@ -55,9 +58,8 @@ const Buyer_Home = () => {
             </Link>
           </Box>
         </Box>
-        <Box className="buyer_home">
+        <Box className="buyer_home"  width="max">
           <div className="home">
-            <h1>Welcome to the Buyer's Home Page</h1>
             <div className="item-container">
               {products.map((item) => (
                 <div key={item.id} className="card">
@@ -79,6 +81,7 @@ const Buyer_Home = () => {
             </div>
           </div>
         </Box>
+      </Box>
       </Box>
     </ChakraProvider>
   );

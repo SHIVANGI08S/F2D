@@ -15,7 +15,10 @@ const Buyer_Cart = ({
    
 
     <ChakraProvider>
-      <Box display="flex">
+    <Box bg="#e8c897" >
+
+    
+      <Box display="flex" height="xl">
         <Box
           display="flex"
           flexDirection="column"
@@ -67,6 +70,7 @@ const Buyer_Cart = ({
             )}
           </div>
         </Box>
+      </Box>
       </Box>
     </ChakraProvider>
   );
