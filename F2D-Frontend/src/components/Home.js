@@ -1,5 +1,5 @@
 import React from 'react';
-import home_img from "../image/image1.png";
+
 
 import "../style/home.css";
 import About from './About';
