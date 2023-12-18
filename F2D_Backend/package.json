@@ -17,7 +17,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon F2D_Backend/index.js"
+    "server": "nodemon F2D_Backend/index.js",
+    "build": "npm install"
   },
   "author": "shivangi",
   "license": "ISC"
