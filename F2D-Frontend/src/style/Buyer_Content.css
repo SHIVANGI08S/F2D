@@ -61,6 +61,9 @@
     border-radius: 5px;
     background: #e8c897;
 }
+.button:hover{
+    background-color: #e6dbca;
+}
 .buyer_content_options:hover{
     color: #e8c897;
 }
