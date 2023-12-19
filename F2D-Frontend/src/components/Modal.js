@@ -1,13 +1,39 @@
-import React from 'react';
+import {React,useEffect, useState} from 'react';
 
 const Modal = ({ closeModal }) => {
-    // const context = useContext(NoteContext);
-  // const { info, getInfo } = context;
-  // useEffect(() => {
-  //   if (localStorage.getItem("authToken")) {
-  //     getInfo();
-  //   }
-  // }, [getInfo]);
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => { 
+    fetchUserInfo();
+  }, []); 
+
+  const fetchUserInfo = async () => {
+    try {
+
+      
+      const response = await fetch('http://localhost:5000/api/auth/getUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token'),
+        }, 
+      });  
+  
+      if (response.ok) { 
+        const data = await response.json();
+        console.log('Received data:', data); // Add this line for debugging
+        setUsername(data.name);
+        setEmail(data.email);  
+      } else {
+        console.error('Failed to fetch user info');
+      } 
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+      
+    }
+  };
 
   return (
     <div className="modal">
@@ -16,11 +42,11 @@ const Modal = ({ closeModal }) => {
         <h2>User Profile</h2>
         <p>
         {/* Name: {info.name} */}
-        sanya
+       {username}
         </p>
         <p>
         {/* Email: {info.mail} */}
-        san@gmail.com
+        {email}
         </p>
       </div>
     </div>

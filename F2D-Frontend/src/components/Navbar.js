@@ -14,7 +14,7 @@ const Navbar = () => {
     setModalOpen(false);
   };
 
-  
+ 
 
   return (
     <nav className="navbar navbar-expand-lg navbar-custom ">
