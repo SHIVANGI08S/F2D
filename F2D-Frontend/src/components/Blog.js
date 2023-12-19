@@ -10,7 +10,7 @@ const Blog = () => {
         Latest Blog
     </p>
     <div className="container delight">
-      <div className="card blog-card my-3 mx-3 col-lg-3 card-custom" >
+      <div className="card blog_card blog-card my-3 mx-3 col-lg-3 card-custom" >
         <img src={img1} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">Empowering Indian Farmers Through Online Platforms</h5>

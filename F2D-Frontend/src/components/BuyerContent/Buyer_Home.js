@@ -26,9 +26,7 @@ const Buyer_Home = () => {
   return (
     <ChakraProvider>
     <Box bg="#e8c897" >
-
-    
-      <Box display="flex" height="xl">
+      <Box display="flex"  minHeight="xl" >
         <Box
           display="flex"
           flexDirection="column"
@@ -36,6 +34,7 @@ const Buyer_Home = () => {
           className="buyer_content"
           paddingLeft="10"
           paddingTop="20"
+          minWidth="80"
         >
           <Box
             className="buyer_content_options"
@@ -58,9 +57,9 @@ const Buyer_Home = () => {
             </Link>
           </Box>
         </Box>
-        <Box className="buyer_home"  width="max">
-          <div className="home">
-            <div className="item-container">
+        <Box className="buyer_home"  width="max" >
+          <Box className="home" >
+            <Box className="item-container" margin="5" padding="5">
               {products.map((item) => (
                 <div key={item.id} className="card">
                   <h2>{item.name}</h2>
@@ -78,8 +77,8 @@ const Buyer_Home = () => {
                   )}
                 </div>
               ))}
-            </div>
-          </div>
+            </Box>
+          </Box>
         </Box>
       </Box>
       </Box>

@@ -6,7 +6,7 @@ import ProductList from "./ProductList";
 const Farmer_Product = () => {
   return (
     <ChakraProvider>
-      <Box display="flex" flexDirection="row" bg="#665039" height="2xl" >
+      <Box display="flex" flexDirection="row" bg="#665039" minHeight="xl" >
         <Box padding="10" bg="#B18E64">
           <ul className="farmer-content-options " color="#665039" >
             <li className="farmer-content-options-name" color="#665039">
