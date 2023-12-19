@@ -61,7 +61,7 @@ const Buyer_Cart = ({ removeItem, calculateTotal, handleCheckout }) => {
                       </button>
                     </div>
                   ))}
-                  <p>Total: ${calculateTotal()}</p>
+                  {/* <p>Total: ${calculateTotal()}</p> */}
                   <button className="b_chck" onClick={handleCheckout}>
                     Checkout
                   </button>
