@@ -26,6 +26,7 @@
     font-weight: 400;
     line-height: normal;
     list-style-type: none;
+    width: 200px;
 }
 .card{
     width: 300px;
@@ -96,4 +97,20 @@
 .account_th_status{
 
     padding-right: 300px;
+}
+.address{
+    font-family: Prociono;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    list-style-type: none;
+}
+.add{
+    
+    padding: 20px;
+}
+.icon_add{
+    padding-left: 5px;
+    padding-right: 7px;
 }

@@ -15,7 +15,8 @@ const Buyer_Account = () => {
     { orderNo: '12355', date: '2021-12-10', shipDate: '2023-01-05', tracking: 'ABC123', status: 'Shipped' },
     { orderNo: '77890', date: '2020-02-07', shipDate: '2023-02-05', tracking: 'XYZ456', status: 'Processing' },
     { orderNo: '82345', date: '2019-07-05', shipDate: '2023-01-05', tracking: 'ABC123', status: 'Shipped' },
-    { orderNo: '87890', date: '2018-02-08', shipDate: '2023-02-05', tracking: 'XYZ456', status: 'Processing' }
+    { orderNo: '87890', date: '2018-02-08', shipDate: '2023-02-05', tracking: 'XYZ456', status: 'Processing' },
+    { orderNo: '85345', date: '2019-07-02', shipDate: '2023-01-05', tracking: 'GHC123', status: 'Shipped' }
     
   ]);
   const handleSearch = (event) => {
@@ -24,7 +25,7 @@ const Buyer_Account = () => {
   const filteredOrders = orders.filter(order => order.orderNo.includes(searchTerm));
   return (
 <ChakraProvider>
-      <Box display="flex">
+      <Box display="flex" bg="#665039">
         <Box
           display="flex"
           flexDirection="column"
