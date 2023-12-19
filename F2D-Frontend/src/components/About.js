@@ -2,7 +2,7 @@ import React from "react";
 import "../style/about.css";
 import Contact from "./Contact";
 import Card from "./Card";
-import Blog from "./Blog";
+
 import Farmerdelight from "./Farmerdelight";
 import Aboutus from "./Aboutus";
 import { Box } from "@chakra-ui/react";

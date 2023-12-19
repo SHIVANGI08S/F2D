@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import "../style/navbar.css";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+
   const [isModalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -14,6 +18,9 @@ const Navbar = () => {
     setModalOpen(false);
   };
 
+  const handleLogout=()=>{
+    navigate('/');
+  };
  
 
   return (
@@ -71,19 +78,15 @@ const Navbar = () => {
             </li> */}
           </ul>
           <div>
-            {/* <div className="profile-icon">
-              <i className="fas fa-user fa-2x"></i>
-              <div>
-                
-                Sanya Raj
-              </div>
-            </div> */}
-
+            
             <div className="profile-icon" onClick={openModal}>
               <i className="fas fa-user fa-2x"></i>
             </div>
             {isModalOpen && <Modal closeModal={closeModal} />}
           </div>
+          <button className="button_logout" onClick={handleLogout}>
+            logout
+          </button>
         </div>
       </div>
     </nav>

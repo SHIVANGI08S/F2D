@@ -53,13 +53,12 @@
 
 }
 .profile-icon{
-  text-align: center;
-  
-  /* border: solid;
-  border-color: #665039; */
+  /* text-align: center; */
+  padding-bottom: 10px;
   color: white;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
+
 .profile-icon:hover{
   cursor: pointer;
   color: #e8c897;
@@ -89,4 +88,16 @@
     font-size: 20px;
   font-style: normal;
   font-weight: 400;
+}
+.button_logout{
+  width: 70px;
+  height: 40px;
+  font-family: Prociono;
+    color: #665039;
+    background-color: #e8c897;
+    font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 5px;
+
 }
