@@ -72,7 +72,7 @@ const Farmerlogin = () => {
         });
         localStorage.setItem("userInfo", JSON.stringify(data));
         setLoading(false);
-        navigate('/Chats');
+        navigate('/FarmerContent');
       } catch (error) {
         toast({
           title: "Invalid credentials!",

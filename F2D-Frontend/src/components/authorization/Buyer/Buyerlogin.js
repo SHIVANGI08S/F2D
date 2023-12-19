@@ -47,7 +47,7 @@ const Buyerlogin = () => {
       console.log(json);
       if (json.success === true) {
         localStorage.setItem('token', json.authtoken);
-        navigate('/MyProfile');
+        navigate('/BuyerContent');
       } else {
         toast.error('Wrong credentials');
       } 

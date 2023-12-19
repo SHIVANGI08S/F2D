@@ -42,7 +42,7 @@ const Farmersignup = () => {
       // Assuming the server returns a token upon successful registration
       const authtoken = response.data.authtoken;
       localStorage.setItem('token', authtoken);
-      navigate("/Buyerlogin");
+      navigate("/FarmerContent");
     } catch (error) {
       if (error.response) {
         if (error.response.status === 400) {

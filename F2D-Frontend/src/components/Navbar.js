@@ -45,7 +45,7 @@ const Navbar = () => {
                 Farmer
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link
                 className="nav-link"
                 aria-current="page"
@@ -53,7 +53,7 @@ const Navbar = () => {
               >
                 FarmerContent
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/buyer_auth">
                 Buyer
@@ -64,11 +64,11 @@ const Navbar = () => {
                 FAQ
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/BuyerContent">
                 BuyerContent
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div>
             {/* <div className="profile-icon">
