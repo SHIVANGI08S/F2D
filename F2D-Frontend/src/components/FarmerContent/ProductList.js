@@ -113,7 +113,8 @@ const ProductList = () => {
           <Box
             key={index}
             className="product-card"
-            margin="5"
+            width="72"
+            marginRight="5" marginTop="5" marginBottom="5" 
             bg="#E8C897"
             color="#665039"
             display="flex"

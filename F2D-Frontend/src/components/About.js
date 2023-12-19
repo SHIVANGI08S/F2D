@@ -51,7 +51,7 @@ const About = () => {
       <Aboutus />
       <div className="headline my-4">Farmers' Delights</div>
       <Farmerdelight />
-      <Blog />
+      {/* <Blog /> */}
       <Contact />
     </div>
     
